@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-
-    from sys import argv
-    count = 1
-
-    # excludes name of program
-    number_of_args = len(argv) - 1
-    if number_of_args == 0:
-        print(f"{number_of_args:d} arguments.")
-        if number_of_args == 1:
-            print(f"{number_of_args:d} argument:")
-            if number_of_args > 1:
-                print(f"{number_of_args:d} arguments:")
-                while count < len(argv):
-                    print(f"{count:d}: {argv[count]}")
-                    count += 1
+    import sys
+    argv = sys.argv[1:]
+    argv_count = len(argv)
+    index = 1
+    if argv_count is 0:
+        print("{:d} arguments.".format(argv_count))
+    elif argv_count is 1:
+        print("{:d} argument:".format(argv_count))
+        print("{:d}: {:s}".format(index, sys.argv[1]))
+    else:
+        print("{:d} arguments:".format(argv_count))
+        while index <= argv_count:
+            print("{:d}: {:s}".format(index, sys.argv[index]))
+            index += 1
